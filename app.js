@@ -9,12 +9,12 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
-app.post("/telepay/success",async(req,res,)=>{
+app.post("/telepay/failed/:id",async(req,res,)=>{
   console.log('reccieved');
   console.log(res.body);
 });
 
-app.get("/telepay/success/:id", async (req, res) => {
+app.post("/telepay/success/:id", async (req, res) => {
   try {
     const id = req.params.id;
     console.log(id);
