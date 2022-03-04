@@ -5,13 +5,15 @@ const request = require("request");
 const bodyParser = require("body-parser");
 const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({extended: true}))
+app.use(express.json());
 
 app.post("/telepay/success",async(req,res,)=>{
   console.log('reccieved');
   console.log(res.body);
 });
+
 app.get("/telepay/success/:id", async (req, res) => {
   try {
     const id = req.params.id;
